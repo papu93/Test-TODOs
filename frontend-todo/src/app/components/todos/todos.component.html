@@ -1,0 +1,93 @@
+
+<div class="container">
+<h2>Lista de TODOs</h2>
+</div>
+
+<div class="container">
+  <div class="filter-header">
+    <h6><i class="fas fa-filter"></i>  Filtrar</h6>
+  </div>
+  <div class="form-row filter-content">
+    <div class="form-group col-md-2 form-filter">
+      <label>Id</label>
+      <input class="form-control" type="number" [(ngModel)]="filterTodo.id"/>
+    </div>
+    <div class="form-group col-md-4 form-filter">
+      <label>Descripcion</label>
+      <input class="form-control" type="text" [(ngModel)]="filterTodo.description"/>
+    </div>
+    <div class="form-group col-md-2 form-filter">    
+      <label>Estado</label>
+      <select class="form-control" [(ngModel)]="filterTodo.state">
+        <option value="">
+        <option value="Pendiente">Pendiente
+        <option value="En proceso">En proceso
+        <option value="Resuelto">Resuelto
+      </select>
+    </div>
+    <div class="form-group col-md-2 form-filter">    
+      <button style="position: absolute; bottom: 0;" type="submit" class="btn btn-primary" (click)="searchFilterTodos()">
+        <i class="fas fa-search-plus"></i>  Buscar</button>
+    </div>
+  </div>
+</div>
+
+<!-- AGREGAR TODO-->
+<div class="container">
+  <button type="submit" class="btn btn-primary btn-block new-todo-button" data-toggle="collapse" data-target="#demo">
+    <i class="fas fa-plus-circle"></i>  Nuevo Todo</button>
+  <div id="demo" class="collapse">
+    <div class="add-container">
+      <div class="post-thumb-add border-0 card-header">
+        <img [src]="url" src="https://via.placeholder.com/200/000000/FFFFFF/?text=Subir%20imagen" height="200" > 
+        <input type="file" id="file" (change)="onSelectFile($event)"/>
+        <label for="file" class="btn-upload"><i class="fas fa-cloud-upload-alt"></i>  Cargar imagen</label>
+      </div>
+      <div class="post-content">        
+        <span style="font-weight: bold;">Descripcion:</span>
+        <div class="container description-textarea">
+          <textarea class="form-control card-text description" maxlength="1500" [(ngModel)]="newTodo.description" name="description"></textarea>
+        </div>
+        <div class="form-inline">
+          <div class="form-group col-md-7">
+            <label class="float-left" style="font-weight: bold; margin-right: 10px">Estado  </label>
+            <select  class="form-control float-center" [(ngModel)]="newTodo.state">
+              <option value="">
+              <option value="Pendiente">Pendiente
+              <option value="En proceso">En proceso
+              <option value="Resuelto">Resuelto
+            </select>
+          </div>
+          <div class="form-filter col-md-4">
+            <button class="btn btn-success float-right" [disabled]="!this.newTodo.description || !this.newTodo.state || !this.newTodo.img" (click)="addTodo()">
+              Agregar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>
+</div>
+
+<!-- LISTA DE TODOS-->
+<div class="container" *ngIf="todos.length == 0">No existen coincidencias para su busqueda.</div>
+<div class="container" *ngIf="todos.length > 0">{{todos.length}} tareas.</div>
+<div class="container" *ngFor="let todo of todos">
+  <div class="post-container">
+    <div class="post-thumb border-0 card-header">
+      <img src="data:image/JPEG;base64,{{todo.img}}" alt="Generic placeholder image">
+    </div>
+    <div class="post-content">
+      <div class="row">
+        <h4 class="card-title col-md-2">ID: {{todo.id}}</h4>
+        <select  class="form-control col-md-3" [(ngModel)]="todo.state" (ngModelChange)="onChange($event, todo.id)">
+          <option value="">
+          <option value="Pendiente">Pendiente
+          <option value="En proceso">En proceso
+          <option value="Resuelto">Resuelto
+        </select>
+      </div>
+      <p class="card-text description">{{todo.description}}</p>
+    </div>
+  </div>
+</div>

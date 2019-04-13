@@ -1,0 +1,107 @@
+.add-container {
+    display: block;
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+.button-add {
+    margin: 10px;
+}
+.buttonSearch {
+    position: button;
+}
+.description {
+    padding-left: 25px;
+    padding-right: 30px;
+    text-align : justify;
+    overflow-y: auto; 
+    height: 189px;
+}
+.description-textarea {
+    margin:10px;
+}
+img {
+    height: 200px;
+    width: 200px;
+}
+.filter-content {
+    border: 1px solid #dddddd;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 10px;
+    border-radius: 0px 0px 17px 17px;
+    -moz-border-radius: 0px 0px 17px 17px;
+    -webkit-border-radius: 0px 0px 17px 17px;
+    font-weight: bold;
+}
+.filter-header {
+    border: 1px solid #dddddd;
+    background: #F4F4F4; 
+    padding: 10px;
+    border-radius: 17px 17px 0px 0px;
+    -moz-border-radius: 17px 17px 0px 0px;
+    -webkit-border-radius: 17px 17px 0px 0px;
+}
+.form-filter {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.new-todo-button {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.post-container {
+    margin: 30px 15px 0 0; 
+    display: block;
+    overflow: auto;
+    overflow-x: hidden;
+}
+.post-content {
+    margin-left: 240px
+}
+.post-thumb {
+    float: left;
+    height: 240px;
+    width: 224px;
+}
+.post-thumb-add{
+    float: left;
+    height: 271px;
+    width: 224px;
+}
+.post-thumb img {
+    display: block
+}
+.post-title {
+    font-weight: bold;
+    font-size: 200%
+}
+.row {
+    margin-left: 10px;
+}
+
+[type="file"] {
+    height: 0;
+    overflow: hidden;
+    width: 0;
+  }
+  
+  [type="file"] + label {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+    border-radius: .25rem;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 10px;
+    outline: none;
+    padding: .375rem .75rem;
+    position: relative;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    vertical-align: middle;
+}
